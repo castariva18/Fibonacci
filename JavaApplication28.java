@@ -1,67 +1,38 @@
-package javaapplication28;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication29;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-public class JavaApplication28 {
+public class JavaApplication29 {
 
-
-  public static void main(String[] args) {
-  Scanner in = new Scanner(System.in);
-  int angka;
-      System.out.println("Masuk angka : ");
-      angka = in.nextInt();
-    if(angka == 4){
-         for (int i=1;i<=4;i++){
-             for(int j=4;j>=i;j--){
-                 System.out.print(" ");
-             }
-             for(int k=1;k<=i;k++){
-                 System.out.print("*");
-             }
-             for (int l=1;l<=i-1;l++){
-                 System.out.print("*");
-             }
-             System.out.println();
-         }
-   for (int i=1;i<=5;i++){
-             for(int j=1;j<=i-1;j++){
-                 System.out.print(" ");
-             }
-             for(int z=5;z>=i;z--){
-              System.out.print("*");
-              }
-             for(int k=4;k>=i;k--){
-               System.out.print("*");
-               }
-             System.out.println("");
-         }
-    }else if(angka == 8){
-   
- 
-        for (int i = 0; i < (2 * angka) + 1; i++) { 
- 
-            for (int j = 0; j < (2 * angka) + 1; j++) { 
- 
-                if (i < angka) { 
-                    if ((j > angka - i) && (j < angka + i)) { 
-                        System.out.print("*"); 
-                    } else { 
-                        System.out.print("0"); 
-                    } 
-                } else { 
- 
-                    if ((j > i - angka) && (j < 3*angka-i)) { 
-                        System.out.print("*"); 
-                    } else { 
-                        System.out.print("0"); 
-                    } 
- 
-                } 
-            } 
-            System.out.println(); 
- 
-        } 
-
-  }
-  }
-} 
+   public static void main(String[] args) throws IOException {
+      BufferedReader dataInput = new BufferedReader(new InputStreamReader(System.in));
+        String input;
+        int banyakBilangan = 0;
+        int a = 1;
+        int b = 1;
+        int c;
+        int i;
+        System.out.print("Input : ");
+        try {
+            input = dataInput.readLine();
+            banyakBilangan = Integer.parseInt(input);
+        } catch (NumberFormatException error) {
+            System.out.println("Error !!");
+        }
+        System.out.print("Output : " + a + " "+ b + " ");
+        for (i = 0; i < banyakBilangan - 2; i++) {
+            c = a + b;
+            System.out.print(c + " ");
+            a = b;
+            b = c;
+        }
+        System.out.println("");
+    }
+}
