@@ -1,38 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package javaapplication29;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+package javaapplication30;
 
-public class JavaApplication29 {
+import java.util.Scanner;
 
-   public static void main(String[] args) throws IOException {
-      BufferedReader dataInput = new BufferedReader(new InputStreamReader(System.in));
-        String input;
-        int banyakBilangan = 0;
-        int a = 1;
-        int b = 1;
-        int c;
-        int i;
-        System.out.print("Input : ");
-        try {
-            input = dataInput.readLine();
-            banyakBilangan = Integer.parseInt(input);
-        } catch (NumberFormatException error) {
-            System.out.println("Error !!");
-        }
-        System.out.print("Output : " + a + " "+ b + " ");
-        for (i = 0; i < banyakBilangan - 2; i++) {
-            c = a + b;
-            System.out.print(c + " ");
-            a = b;
-            b = c;
-        }
+public class JavaApplication30 {
+    
+  static int calculateSum(int n) 
+    { 
+        if (n <= 0) 
+           return 0; 
+       
+        int fibo[]=new int[n+1]; 
+        fibo[0] = 0; fibo[1] = 1; 
+       
+        // Initialize result 
+        int sum = fibo[0] + fibo[1]; 
+       
+        // Add remaining terms 
+        for (int i=2; i<=n; i++) 
+        { 
+            fibo[i] = fibo[i-1]+fibo[i-2]; 
+            sum += fibo[i]; 
+        } 
+       
+        return sum; 
+    } 
+    /**
+     * @param args the command line arguments
+     */
+    
+    public static void main(String[] args) {
+        // TODO code application logic here
+          int n = 0; 
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Input: ");
+        n = scan.nextInt();
+        
+        System.out.println(" ");
+        
+        System.out.print("Output: "+ calculateSum(n)); 
         System.out.println("");
     }
+    
 }
